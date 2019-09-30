@@ -1,0 +1,35 @@
+<h2>Student Details:</h2>    
+<div *ngFor="let stud of students">    
+    <a routerLink="/profile/{{stud.id}}/{{stud.name}}/{{stud.marks}}"> Id : {{stud.id}}, Name : {{stud.name}} </a>    
+</div>   
+<br>  
+<div *ngIf="student.id">  
+    your current selection : Id - {{student.id}}, Name - {{student.name}}, Marks - {{student.marks}}  
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+{{param|json}}
+<table class="table table-bordered">
+<tr>
+  <th>Id</th>
+  <th>Title</th>
+  <th>Body</th>
+  <th>View</th>
+</tr>
+<tr *ngFor="let p of Posts">
+  <td><a [routerLink]="['/post', p.id]">{{p.id}}</a></td>
+  <td>{{p.title}}</td>
+  <td>{{p.body}}</td>
+  <th><button class="btn btn-info" (click)="getPostById(p)">view</button></th>
+
+</tr>
+</table>

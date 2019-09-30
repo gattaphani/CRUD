@@ -1,0 +1,68 @@
+
+
+<!-- <div class="container-fluid">
+<table class="table table-bordered">
+  <tr>
+    <th>
+      EmpId
+    </th>
+    <th>
+        EmpName
+      </th>
+      <th>
+          EmpSalary
+        </th>
+        <th>
+          EmpAddress
+        </th>
+        <th>
+            Edit
+          </th>
+          <th>
+              Delete
+            </th>
+  </tr>
+  <tr *ngFor = "let e of getall">
+    <td>{{e.id}}</td>
+    <td>{{e.employee_name}}</td>
+    <td>{{e.employee_age}}</td>
+    <td>{{e.Address[0].district}},  {{e.Address[0].place}}</td>
+    <td><button type="button" class="btn btn-primary" (click)="getById()">Edit</button></td>
+    <td><button type="button" class="btn btn-danger" (click)="deleteEmp()">Delete</button></td>
+  </tr>
+</table>
+</div> -->
+
+    <button class="btn btn-success"   (click)="addEmp()">Add Employee</button>  
+
+<div class="col-md-12 container">  
+    
+    <h2> User Details</h2>  
+    
+      <table class="table table-bordered">  
+  
+          <tr>  
+            <th>Id</th>  
+            <th>Employee Name</th>  
+            <th>Address</th>  
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Edit</th>
+            <th>Delete</th>  
+          </tr>  
+  
+  
+          <tr *ngFor="let emp of employees">  
+            <td>{{emp.employee_id}}</td>  
+            <td>{{emp.employee_name}}</td>  
+            <td>{{emp.employee_address}}</td>
+            <td>{{emp.employee_age}}</td>  
+            <td>{{emp.employee_salary}}</td> 
+            <td><button (click)="getByEmpId(emp)"  class="btn btn-info"> Edit</button> </td>
+            <td><button (click)="deleteEmp(emp)" class="btn btn-info"> Delete</button></td>
+        
+          </tr>  
+    
+      </table>  
+    
+  </div>  

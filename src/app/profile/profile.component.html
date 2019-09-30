@@ -1,0 +1,40 @@
+<!-- <p>
+  profile works!
+</p>
+
+<div>
+  <form [formGroup]="addForm">
+  <input type="text" placeholder="Enter username" formControlName="username" /><br>
+  <input type="text" placeholder="Enter Email Address" formControlName="email"/><br>
+  <input type="password" placeholder="Enter Password" formControlName="password" /><br>
+  <input type="password" placeholder="Confirm Password" name="password2"
+  formControlName="password2"/><br>
+  <div class='error' *ngIf="addForm.get('password2').touched">
+  <div class="alert-danger errormessageadduser"
+  *ngIf="addForm.hasError('mismatchedPasswords')"> Passwords do
+  not match
+  </div>
+  </div>
+  <select name="Role" formControlName="role">
+  <option value="admin" >Admin</option>
+  <option value="Accounts">Accounts</option>
+  <option value="guest">Guest</option>
+  </select>
+  <br/>
+  <br/>
+  <button type="submit" (click)="addUser()"><span><i class="fa fa-user-plus" ariahidden="
+  true"></i></span> Add User </button>
+  </form> -->
+
+
+
+  
+   
+    <h2>Selected Student Details</h2>  
+   <p>Id : <b>{{student.id}}</b></p>  
+   <p>Name : <b>{{student.name}}</b></p>  
+   <p>Marks : <b>{{student.marks}}</b></p>  
+     
+   <div>  
+       <button (click)="gotoStudentList()">Back</button>  
+   </div> 

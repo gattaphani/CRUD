@@ -1,0 +1,17 @@
+<p>{{data|json}}</p> 
+<h3>You have selected : {{id}}</h3>
+ <table class="table table-dark">
+   <tr>
+     <th>User Id</th>
+     <th>Id</th>
+     <th>Title</th>
+     <th>Body</th>
+   </tr>
+   <tr *ngFor = "let p of array">
+     <td>{{p.userId}}</td>
+     <td>{{p.id}}</td>
+     <td>{{p.title}}</td>
+     <td>{{p.body}}</td>
+   </tr>
+ </table>
+ <button class="btn btn-primary" (click)="goBackPost()">Back</button>

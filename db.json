@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "firstName": "phani",
+      "lastName": "venkat",
+      "email": "phani.gatta@gmail.com",
+      "password": "phani123"
+    },
+    {
+      "firstName": "phani",
+      "lastName": "venkat",
+      "email": "phani.gatta@gmail.com",
+      "password": "phani123"
+    },
+    {
+      "firstName": "phani",
+      "lastName": "venkat",
+      "email": "phani.gatta@gmail.com",
+      "password": "phani123"
+    },
+    {
+      "firstName": "phani",
+      "lastName": "venkat",
+      "email": "phani.gatta@gmail.com",
+      "password": "phani123"
+    }
+  ],
+  "address": [
+    {
+      "city": "gudivada",
+      "district": "krishna",
+      "state": [
+        {
+          "name": "Andhra Pradesh"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="jumbotron">
+        <h4>Reactive Form with Validation</h4>
+
+        <form [formGroup]="myform" (ngSubmit)="onSubmit(myform)" autocomplete="on">
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="firstname">First Name:</label>
+              <input type="text" class="form-control" formControlName="firstname" placeholder="firstname" />
+              <span style="color:red" *ngIf="myform.get('firstname').touched && myform.get('firstname').invalid">
+                <span *ngIf="myform.get('firstname').errors.required"> First Name is required </span>
+                <span *ngIf="myform.get('firstname').errors.minlength"> Min length 5 is required </span>
+                <span *ngIf="myform.get('firstname').errors.maxlength"> Max length 2 is required </span>
+                <span *ngIf="myform.get('firstname').errors.pattern"> Alphabets only </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="Lastname"> Last Name:</label>
+              <input type="text" class="form-control" formControlName="lastname" placeholder="lastname" />
+              <span style="color:red" *ngIf="myform.get('lastname').touched && myform.get('lastname').invalid">
+                <span *ngIf="myform.get('lastname').errors.required"> First Name is required </span>
+                <span *ngIf="myform.get('lastname').errors.minlength"> Min length 5 is required </span>
+                <span *ngIf="myform.get('lastname').errors.maxlength"> Max length 2 is required </span>
+                <span *ngIf="myform.get('lastname').errors.pattern"> Alphabets only </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="Email"> Email:</label>
+              <input type="text" class="form-control" formControlName="email" placeholder="email" />
+              <span style="color:red" *ngIf="myform.get('email').touched && myform.get('email').invalid">
+                <span *ngIf="myform.get('email').errors.required"> Email is required </span>
+                <span *ngIf="myform.get('email').errors.minlength"> Min length 5 is required </span>
+                <span *ngIf="myform.get('email').errors.maxlength"> Max length 25 is required </span>
+                <span *ngIf="myform.get('email').errors.pattern"> Please provide @ </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="Amount"> Amount:</label>
+              <input type="text" class="form-control" formControlName="amount" placeholder="Amount" />
+              <span style="color:red" *ngIf="myform.get('amount').touched && myform.get('amount').invalid">
+                <span *ngIf="myform.get('amount').errors.required"> First Name is required </span>
+                <span *ngIf="myform.get('amount').errors.minlength"> Min length 5 is required </span>
+                <span *ngIf="myform.get('amount').errors.maxlength"> Max length 2 is required </span>
+                <span *ngIf="myform.get('amount').errors.pattern"> Alphabets only </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="Gender"> Gender:</label>
+              <input type="radio" class="form-control" formControlName="gender" value="male" />Male
+              <input type="radio" class="form-control" formControlName="gender" value="female" />Female
+              <span style="color:red" *ngIf="myform.get('gender').touched && myform.get('gender').invalid">
+                <span *ngIf="myform.get('gender').errors.required"> Gender is required </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="firstname"> Date Of Birth:</label>
+              <input type="date" class="form-control" formControlName="dob" placeholder="dob" />
+              <span style="color:red" *ngIf="myform.get('dob').touched && myform.get('dob').invalid">
+                <span *ngIf="myform.get('dob').errors.required"> dob is required </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+              <label for="country"> Country:</label>
+              <!-- <select class="form-control" formControlName = "country">
+      <span style="color:red" *ngIf = "myform.get('country').errors.touched && myform.get('country').errors.invalid">
+          <span style="color:red" *ngIf = "myform.get('country').errors.required">
+              Country is required
+            </span>
+      </span>
+    <option>Please Select</option>
+    <option>India</option>
+    <option>USA</option>
+  </select> -->
+              <select formControlName="country" class="form-control">
+                <option default selected disabled>select any one</option>
+                <option *ngFor="let c of countries" [ngValue]="c"> {{ c.name }} </option>
+              </select>
+              <span style="color:red" *ngIf="myform.get('country').touched && myform.get('country').invalid">
+                <span style="color:red" *ngIf="myform.get('country').errors.required"> Country is required </span>
+              </span>
+            </div>
+          </div>
+          <br />
+
+          <!-- <input type="submit" value="Submit" (click)="onSubmit(myform)" [disabled]="myform.invalid"> -->
+          <button class="btn  btn-primary" data-toggle="modal" data-target="#largeModal"
+            (click)="saveData(myform.value)">
+            Submit</button>&nbsp; <button class="btn  btn-warning" (click)="myform.reset()">Reset</button><br />
+          <!-- <input type="button" value="Reset" (click)="myform.reset()"> -->
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- large modal -->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Large Modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <tr>
+            <th>Sl.No</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Amount</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Country</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let item of users; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.firstname }}
+                <input class="form-control" type="text" [(ngModel)]="item.firstname" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.lastname }}
+                <input class="form-control" type="text" [(ngModel)]="item.lastname" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.email }}
+                <input class="form-control" type="text" [(ngModel)]="item.email" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.amount }}
+                <input class="form-control" type="text" [(ngModel)]="item.amount" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.gender }}
+                <input class="form-control" type="text" [(ngModel)]="item.gender" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.dob }}
+                <input class="form-control" type="text" [(ngModel)]="item.dob" *ngIf="item.isEditable" />
+              </div>
+            </td>
+            <td>
+              <div *ngIf="!item.isEditable">
+                {{ item.country }}
+                <select class="form-control" type="text" [(ngModel)]="item.country" *ngIf="item.isEditable"
+                  (change)="onChange($event.target.value)">
+                  <option default selected disabled>select any course</option>
+                  <option *ngFor="let c of countries">{{ c.name }}></option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <button (click)="update(item)" (click)="item.isEditable = !item.isEditable"
+                *ngIf="!item.isEditable">Edit</button>
+              <span><button type="button" (click)="item.isEditable = !item.isEditable" *ngIf="item.isEditable"
+                  data-dismiss="modal">
+                  update
+                </button></span>
+            </td>
+            <td><button (click)="delete(i)" data-dismiss="modal">Delete</button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

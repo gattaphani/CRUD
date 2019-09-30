@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="jumbotron">
+
+
+
+ <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit(registerForm)">
+
+
+    <div class="form-group">
+        <div class="col-md-6 offset-md-3">
+        <label for ="password">Password:</label> 
+    <input type="password" class="form-control" formControlName = "password" placeholder="password"  [(ngModel)]="password">
+    <span style="color:red" *ngIf = "registerForm.get('password').touched && registerForm.get('password').invalid">
+      <span *ngIf = "registerForm.get('password').errors.required">
+          Password is required
+      </span>
+    </span>
+        </div>
+    </div>
+  <br>
+ 
+  <div class="form-group">
+      <div class="col-md-6 offset-md-3">
+      <label for ="password">Confirm Password:</label> 
+  <input type="password" class="form-control" formControlName = "confirmPassword" placeholder="confirmPassword"  [(ngModel)]="password">
+  <span style="color:red" *ngIf = "registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid">
+    <span *ngIf = "registerForm.get('confirmPassword').errors.required">
+        Confirm Password is required
+    </span>
+  </span>
+      </div>
+  </div>
+<br>
+    <button type="submit" class="btn btn-danger">Submit</button>
+  </form>
+  
+</div>
+</div>
+</div>
+</div>

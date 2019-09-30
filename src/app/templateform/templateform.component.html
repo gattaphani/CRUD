@@ -1,0 +1,306 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+          <div class="jumbotron">
+              <h4>Template Driven Form with Validation</h4>
+
+<div class="panel">
+<form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)" autocomplete="on">
+
+    
+  <div class="form-group">   
+      <div class="col-md-6 offset-md-3"> 
+        <label>UserName</label>
+  <input type="text" placeholder="User name" class="form-control" required
+         minlength="4" maxlength="10"
+         [(ngModel)]="UserName" name="UserName"
+         #pickedName="ngModel">
+  <span style="color:red" *ngIf="pickedName.invalid && pickedName.touched ">
+  
+  <span *ngIf="pickedName.errors.required">
+    Name is required.
+  </span>
+  <span *ngIf="pickedName.errors.minlength">
+    Name must be at least 4 characters long.
+  </span>
+  <span *ngIf="pickedName.errors.maxlength">
+    Name must be at most 10 characters long.
+  </span>
+</span>
+  </div>
+  </div>
+  <br>
+
+  <div class="form-group">
+      <div class="col-md-6 offset-md-3"> 
+        <label>Email</label>
+  <input type="email" placeholder="Email" class="form-control" required
+  minlength="4" maxlength="25"       
+  [(ngModel)]="Email"
+         name="Email" #userEmail="ngModel">
+         <span style="color:red" *ngIf="userEmail.invalid && userEmail.touched ">
+  
+          <span *ngIf="userEmail.errors.required">
+            email is required.
+          </span>
+          <span *ngIf="userEmail.errors.minlength">
+            Name must be at least 4 characters long.
+          </span>
+          <span *ngIf="userEmail.errors.maxlength">
+            Name must be at most 25 characters long.
+          </span>
+          
+        </span>
+</div>
+</div>
+  <br>
+
+<div class="form-group">
+    <div class="col-md-6 offset-md-3"> 
+      <label>NickName</label>
+  <input type="text" placeholder="Nick name" class="form-control" required
+  minlength="4" maxlength="10"
+         [(ngModel)]="NickName" name="NickName" 
+         #userNickname="ngModel">
+         <span style="color:red" *ngIf="userNickname.invalid && userNickname.touched">
+  
+          <span *ngIf="userNickname.errors.required">
+            nickName is required.
+          </span>
+          <span *ngIf="userNickname.errors.minlength">
+           nickName must be at least 4 characters long.
+          </span>
+          <span *ngIf="userNickname.errors.maxlength">
+            nickName must be at most 10 characters long.
+          </span>
+        </span>
+         </div>
+         </div>
+         <br>
+
+<div class="form-group">
+    <div class="col-md-6 offset-md-3"> 
+      <label>Password</label>
+  <input type="text" placeholder="Password" class="form-control" required
+  minlength="4" maxlength="10"
+         [(ngModel)]="Password" name="Password"
+         #userPassword="ngModel"><br>
+         <span style="color:red" *ngIf="userPassword.invalid && userPassword.touched">
+          <span *ngIf="userPassword.errors.required">
+            password is required.
+          </span>
+          <span *ngIf="userPassword.errors.minlength">
+            password must be at least 4 characters long.
+          </span>
+          <span *ngIf="userPassword.errors.maxlength">
+            password must be at most 10 characters long.
+          </span>
+        </span>
+  </div>
+  </div>
+  
+  <br>
+    <div class="form-group">
+      <div class="col-md-6 offset-md-3"> 
+  <div class="form-group">
+    <div class="col-md-6 offset-md-3">
+        <label>Gender:</label> 
+        <br>
+        <!-- <input type="radio" name="gender" value="male" [(ngModel)]="genderselected"  (change)="onChangeGender($event.target.value)"> Male<br> -->
+        <input type="radio" name="gender" value="Male" (click)="setradio('Male')"  [(ngModel)]="Gender">Male<br>
+        <!-- <input type="radio" name="gender" value="female" [(ngModel)]="genderselected"  (change)="onChangeGender($event.target.value)" > Female<br> -->
+        <input type="radio" name="gender" value="Female" (click)="setradio('Female')" [(ngModel)]="Gender">Female<br> 
+        <br>
+  </div>
+  </div>
+  </div>
+  </div> 
+  <br>
+
+
+  <div class="form-group">
+    <div class="col-md-6 offset-md-3"> 
+
+      <label>Date Of Birth:</label> 
+      <br>
+      
+      <input type="date" [ngModel]="Dob" placeholder="enter dob" required  #date="ngModel" 
+       (ngModelChange)="Dob = $event" class="form-control">
+     
+        <span style="color:red" *ngIf="date.invalid && date.touched">
+          <span *ngIf="date.errors.required">
+            DOB is required.
+          </span>
+        
+         
+        </span>
+      <br>
+</div>
+</div>
+
+ 
+
+  <!-- <div class="radio">  
+    <label>  
+        <input type="radio" name="gender" value="Male" (click)="setradio('Male')"  [(ngModel)]="genderselected" >  
+        Male  
+    </label>  
+</div>  
+<div class="radio">  
+    <label>  
+        <input type="radio" name="gender" value="Female" (click)="setradio('Female')" [(ngModel)]="genderselected" >  
+        Female  
+    </label>  
+</div>   -->
+<br>
+
+  <div class="form-group">
+      <div class="col-md-6 offset-md-3"> 
+  <div class="form-group">
+      <label >Select list (select one):</label>
+      <select  class="form-control"  [(ngModel)]="Course"  
+      (change)="onChange($event.target.value)">
+        <option  default selected disabled>select any course</option> 
+        <option *ngFor="let c of CourseName">{{c.name}}</option>
+        
+      </select>
+      </div>
+      </div>
+      </div>
+      <br>
+
+
+  <button type="submit" >
+    Register
+  </button>
+
+  <button type="button" (click)="newUserForm.reset()">
+    Reset
+  </button>
+
+  <button type="button" (click)="post(form)">
+      post
+    </button>
+
+</form><br>
+</div>
+          </div>
+
+<!-- <pre>{{ newUserForm.form.value | json }}</pre> 
+ <pre>User name: {{ pickedName.value }}</pre>  
+<pre>Valid form? {{ newUserForm.form.valid | json }}</pre> 
+<br> -->
+
+
+<table class="table table-bordered" *ngIf="isEmpty">
+<tr>
+  <th>
+    Sl.no
+  </th>
+  <th>
+      UserName
+  </th>
+  <th>
+      Email
+  </th>
+  <th>
+      Nickname
+  </th>
+  <th>
+      Password
+  </th>
+  <th>
+      Gender
+  </th>
+  <th>
+    Date Of Birth
+  </th>
+  <th>
+      Course
+  </th>
+  <th>
+    Delete
+</th>
+<th>
+  Update
+</th>
+</tr>
+<tr *ngFor="let form of formData; let i = index">
+  <td>
+    {{i+1}}
+  </td>
+ <td>
+     <div *ngIf="!form.isEditable">
+        {{form.userName}}
+      </div>
+      <input  class="form-control" type="text" [(ngModel)]="form.userName" *ngIf="form.isEditable"/>
+
+ </td>
+ <td>
+    <div *ngIf="!form.isEditable">
+        {{form.email}}
+      </div>
+      <input  class="form-control" type="text" [(ngModel)]="form.email" *ngIf="form.isEditable"/>
+    
+  </td>
+  <td>
+      <div *ngIf="!form.isEditable">
+          {{form.nickName}}
+        </div>
+        <input  class="form-control" type="text" [(ngModel)]="form.nickName" *ngIf="form.isEditable"/>
+      
+    </td>
+    <td>
+        <div *ngIf="!form.isEditable">
+            {{form.password}}
+          </div>
+          <input  class="form-control" type="text" [(ngModel)]="form.password" *ngIf="form.isEditable"/>
+        
+      </td>
+      <td>
+          <div *ngIf="!form.isEditable">
+              {{form.gender}}
+            </div>
+            <!-- <input  class="form-control" type="text" [(ngModel)]="form.gender" *ngIf="form.isEditable"/> -->
+            <select [(ngModel)]="form.gender"  (change)="setRadio($event.target.value)" *ngIf="form.isEditable">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          
+        </td>
+
+        <td>
+          <div *ngIf="!form.isEditable">
+              {{form.dob}}
+            </div>
+            <input  class="form-control" type="date" [(ngModel)]="form.dob"  *ngIf="form.isEditable"/>
+        </td>
+        <td>
+            <div *ngIf="!form.isEditable">
+                {{form.course}}
+              </div>
+              <!-- <input  class="form-control" type="text" [(ngModel)]="form.course" *ngIf="form.isEditable"/> -->
+              <select [(ngModel)]="form.course"  *ngIf="form.isEditable">
+              <option *ngFor="let c of CourseName" >{{c.name}}</option>
+            </select>
+            
+          </td>
+      <td>
+          <button type="button" (click)="delete(i)">
+              delete
+            </button></td>
+            
+            
+            <td><button type="button" (click)="update(form)" (click)='form.isEditable =!form.isEditable' *ngIf="!form.isEditable">
+                edit
+              </button>
+           
+            <span><button  type="button"  *ngIf="form.isEditable" (click)="form.isEditable=!form.isEditable">update</button></span></td>
+     
+</tr>
+</table>
+</div>
+</div>
+</div>
+
+

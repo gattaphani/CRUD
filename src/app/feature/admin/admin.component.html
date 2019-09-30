@@ -1,0 +1,100 @@
+<p>
+  add works!
+</p>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3>Angular 7 Reactive Form Validation</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" name="firstName" />
+            <span style="color:red" *ngIf="
+                registerForm.controls.firstName.invalid &&
+                registerForm.controls.firstName.touched
+              " class="text-danger">
+              <span *ngIf="registerForm.get('firstName').errors.required">
+                First Name is required
+              </span>
+              <span *ngIf="registerForm.get('firstName').errors.pattern">
+                Only Alphabes are allowed
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" name="lastName" />
+            <span style="color:red" *ngIf="
+                registerForm.controls.lastName.invalid &&
+                registerForm.controls.lastName.touched
+              " class="text-danger">
+              <span *ngIf="registerForm.get('lastName').errors.required">
+                Last Name is required
+              </span>
+              <span *ngIf="registerForm.get('lastName').errors.pattern">
+                Only Alphabes are allowed
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="email" class="form-control" name="email" />
+            <span style="color:red" *ngIf="
+                registerForm.get('email').touched &&
+                registerForm.get('email').invalid
+              ">
+              <span *ngIf="registerForm.get('email').errors.required">
+                Email is required
+              </span>
+              <span *ngIf="registerForm.get('email').errors.minlength">
+                Min length 6 is required
+              </span>
+              <span *ngIf="registerForm.get('email').errors.maxlength">
+                Max length 25 is required
+              </span>
+              <span *ngIf="registerForm.get('email').errors.pattern">
+                Please provide @
+              </span>
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="text" formControlName="password" class="form-control" />
+            <span style="color:red" *ngIf="
+                registerForm.get('password').touched &&
+                registerForm.get('password').invalid
+              ">
+              <span *ngIf="registerForm.get('password').errors.required">
+                Password is required
+              </span>
+              <span *ngIf="registerForm.get('password').errors.minlength">
+                Password must contains 6 chars
+              </span>
+            </span>
+          </div>
+
+          <!-- <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" />
+            <span style="color:red" *ngIf="
+                registerForm.get('confirmPassword').touched &&
+                registerForm.get('confirmPassword').invalid
+              ">
+              <span *ngIf="registerForm.get('confirmPassword').errors.required">
+                Confirm Password is required
+              </span>
+            </span>
+          </div> -->
+
+          <div class="form-group">
+            <button class="btn btn-primary">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

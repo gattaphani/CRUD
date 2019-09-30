@@ -1,0 +1,49 @@
+{
+  "token":[
+    {
+     "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGV4MTIzIiwic2NvcGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJpc3MiOiJodHRwOi8vZGV2Z2xhbi5jb20iLCJpYXQiOjE1NDEwNjIzOTMsImV4cCI6MTU0MTA4MDM5M30.DMoB5kv72X7Jf-U5APdjK3UUcGomA9NuJj6XGxmLyqE"
+    }
+  ],
+  "employees": [
+    {
+      "employee_id": 1,
+      "employee_name": "phani",
+      "employee_salary": 50000,
+      "employee_age": 24,
+      "employee_address": "gdv",
+      "id": 1
+    },
+    {
+      "employee_id": 2,
+      "employee_name": "gpv",
+      "employee_salary": 50000,
+      "employee_age": 24,
+      "employee_address": "Gudivada",
+      "id": 2
+    },
+    {
+      "employee_id": 3,
+      "employee_name": "phani",
+      "employee_salary": 60000,
+      "employee_age": 24,
+      "employee_address": "Vijayawada",
+      "id": 3
+    },
+    {
+      "employee_id": 4,
+      "employee_name": "Phaneendra",
+      "employee_salary": 80000,
+      "employee_age": 25,
+      "employee_address": "Gudivada",
+      "id": 4
+    },
+    {
+      "employee_id": 5,
+      "employee_name": "Phaneendra Venkat",
+      "employee_salary": 90000,
+      "employee_age": 24,
+      "employee_address": "Gudivada",
+      "id": 5
+    }
+  ]
+}
